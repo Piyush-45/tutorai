@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 import {
     getUserCompanions,
     getUserSessions,
-    getBookmarkedCompanions,
+
 } from "@/lib/actions/companion.actions";
 import Image from "next/image";
 import CompanionsList from "@/components/CompanionList";
@@ -22,7 +22,7 @@ const Profile = async () => {
 
     const companions = await getUserCompanions(user.id);
     const sessionHistory = await getUserSessions(user.id);
-    const bookmarkedCompanions = await getBookmarkedCompanions(user.id);
+    // const bookmarkedCompanions = await getBookmarkedCompanions(user.id);
 
     return (
         <main className="min-lg:w-3/4">
@@ -44,7 +44,7 @@ const Profile = async () => {
                     </div>
                 </div>
                 <div className="flex gap-4">
-                    <div className="border border-black  p-3  gap-2 flex flex-col h-fit ">
+                    <div className="border border-black rouded-lg p-3 gap-2 flex flex-col h-fit">
                         <div className="flex gap-2 items-center">
                             <Image
                                 src="/icons/check.svg"
@@ -67,16 +67,16 @@ const Profile = async () => {
             </section>
             <Accordion type="multiple">
                 {/* <AccordionItem value="bookmarks">
-                    <AccordionTrigger className="text-2xl font-bold">
-                        Bookmarked Companions {`(${bookmarkedCompanions.length})`}
-                    </AccordionTrigger>
-                    <AccordionContent>
-                        <CompanionsList
-                            companions={bookmarkedCompanions}
-                            title="Bookmarked Companions"
-                        />
-                    </AccordionContent>
-                </AccordionItem> */}
+            <AccordionTrigger className="text-2xl font-bold">
+              Bookmarked Companions {`(${bookmarkedCompanions.length})`}
+            </AccordionTrigger>
+            <AccordionContent>
+              <CompanionsList
+                companions={bookmarkedCompanions}
+                title="Bookmarked Companions"
+              />
+            </AccordionContent>
+          </AccordionItem> */}
                 <AccordionItem value="recent">
                     <AccordionTrigger className="text-2xl font-bold">
                         Recent Sessions
